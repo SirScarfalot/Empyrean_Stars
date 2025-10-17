@@ -26,6 +26,7 @@ service cloud.firestore {
         //   - Deletes and updates are not allowed (default)
         match /ratings/{ratingId} {
           allow read;
+          allow create: if request.auth != null;
           allow write: if request.resource.data.userId != null;
       }
     }
