@@ -97,8 +97,8 @@ footer {
 }
 
 header {
-  background-color: rgb(56 85 116);
-  color: white;
+  background-color: brown;
+  color: beige;
   display: flex;
   justify-content: space-between;
   padding: 0.8rem;
@@ -119,7 +119,7 @@ header {
   }
   .profileImage {
     border-radius: 100%;
-    border-color: white;
+    border-color: blue;
     border-width: 2px;
     border-style: solid;
     margin-right: 10px;
@@ -468,6 +468,7 @@ a {
     gold var(--percent),
     rgba(0, 0, 0, 0.2) var(--percent)
   );
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

@@ -4,8 +4,27 @@ import {
   getRandomDateBefore,
 } from "@/src/lib/utils.js";
 import { randomData } from "@/src/lib/randomData.js";
-
 import { Timestamp } from "firebase/firestore";
+
+export async function generateFakeStars() {
+  const starsToAdd = 5;
+  const data = [];
+  for (let i = 0; i < starsToAdd; i++) {
+    const starData = {
+      name: randomData.starNames[randomNumberBetween(0, randomData.starNames.length - 1)],
+      sector: randomData.starSectors[randomNumberBetween(0, randomData.starSectors.length - 1)],
+      GDP: randomNumberBetween(100, 1000),
+      timeCreated: Timestamp.fromDate(new Date()),
+      anthem: randomData.starAnthem[randomNumberBetween(0, randomData.starAnthem.length - 1)],
+      fightersAlpha: randomNumberBetween(10, 100),
+      fightersBeta: randomNumberBetween(10, 100),
+      fightersDelta: randomNumberBetween(10, 100),
+      fightersGamma: randomNumberBetween(10, 100),
+    };
+    data.push(starData);
+  }
+  return data;
+}
 
 export async function generateFakeRestaurantsAndReviews() {
   const restaurantsToAdd = 5;

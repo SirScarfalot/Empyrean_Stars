@@ -1,6 +1,7 @@
 "use server";
 
 import { addReviewToRestaurant } from "@/src/lib/firebase/firestore.js";
+import { addWar } from "@/src/lib/firebase/firestore.js";
 import { getAuthenticatedAppForUser } from "@/src/lib/firebase/serverApp.js";
 import { getFirestore } from "firebase/firestore";
 
@@ -17,8 +18,15 @@ export async function handleReviewFormSubmission(data) {
   await addReviewToRestaurant(db, data.get("restaurantId"), {
           text: data.get("text"),
           rating: data.get("rating"),
-
-          // This came from a hidden form field.
           userId: currentUser.uid,
+  });
+}
+
+export async function handleWarFormSubmission(data){
+  const { app, currentUser } = await getAuthenticatedAppForUser();
+  const db = getFirestore(app);
+
+  await addWar(db, data.get("starId"), {
+    activeWar: currentUser.uid,
   });
 }

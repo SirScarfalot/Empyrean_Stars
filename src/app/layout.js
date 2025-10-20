@@ -6,9 +6,9 @@ import { getAuthenticatedAppForUser } from "@/src/lib/firebase/serverApp";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "FriendlyEats",
+  title: "Empyrean Stars",
   description:
-    "FriendlyEats is a restaurant review website built with Next.js and Firebase.",
+    "This is an alpha version of Empyrean Stars, a game where you control a star system and engage other star systems militarily, economically or diplomatically.",
 };
 
 export default async function RootLayout({ children }) {

@@ -1,4 +1,4 @@
-import { generateFakeRestaurantsAndReviews } from "@/src/lib/fakeRestaurants.js";
+import { generateFakeStars } from "@/src/lib/fakeStars.js";
 
 import {
   collection,
@@ -81,6 +81,30 @@ export async function addReviewToRestaurant(db, restaurantId, review) {
   }
 }
 
+export async function addWar(db, starId) {
+  if (!starId) {
+          throw new Error("No star ID has been provided.");
+  }
+
+  try {
+          const docRef = doc(collection(db, "stars"), starId);
+          const newWarInstance = doc(
+                  collection(db, `stars/${starId}/wars`)
+          );
+
+          // corrected line
+          await runTransaction(db, transaction =>
+                  updateWar(transaction, docRef, newWarInstance)
+          );
+  } catch (error) {
+          console.error(
+                  "There was an error declaring war",
+                  error
+          );
+          throw error;
+  }
+}
+
 function applyQueryFilters(q, { category, city, price, sort }) {
   if (category) {
     q = query(q, where("category", "==", category));
@@ -101,6 +125,21 @@ function applyQueryFilters(q, { category, city, price, sort }) {
 
 export async function getRestaurants(db = db, filters = {}) {
   let q = query(collection(db, "restaurants"));
+
+  q = applyQueryFilters(q, filters);
+  const results = await getDocs(q);
+  return results.docs.map((doc) => {
+    return {
+      id: doc.id,
+      ...doc.data(),
+      // Only plain objects can be passed to Client Components from Server Components
+      timestamp: doc.data().timestamp.toDate(),
+    };
+  });
+}
+
+export async function getStars(db = db, filters = {}) {
+  let q = query(collection(db, "stars"));
 
   q = applyQueryFilters(q, filters);
   const results = await getDocs(q);
@@ -137,6 +176,29 @@ export function getRestaurantsSnapshot(cb, filters = {}) {
   });
 }
 
+export function getStarsSnapshot(cb, filters = {}) {
+  if (typeof cb !== "function") {
+    console.log("Error: The callback parameter is not a function");
+    return;
+  }
+
+  let q = query(collection(db, "stars"));
+  q = applyQueryFilters(q, filters);
+
+  return onSnapshot(q, (querySnapshot) => {
+    const results = querySnapshot.docs.map((doc) => {
+      return {
+        id: doc.id,
+        ...doc.data(),
+        // Only plain objects can be passed to Client Components from Server Components
+        timestamp: doc.data().timestamp.toDate(),
+      };
+    });
+
+    cb(results);
+  });
+}
+
 export async function getRestaurantById(db, restaurantId) {
   if (!restaurantId) {
     console.log("Error: Invalid ID received: ", restaurantId);
@@ -150,8 +212,47 @@ export async function getRestaurantById(db, restaurantId) {
   };
 }
 
+export async function getStarById(db, starId) {
+  if (!starId) {
+    console.log("Error: Invalid ID received: ", starId);
+    return;
+  }
+  const docRef = doc(db, "stars", starId);
+  const docSnap = await getDoc(docRef);
+  return {
+    ...docSnap.data(),
+    timestamp: docSnap.data().timestamp.toDate(),
+  };
+}
+
 export function getRestaurantSnapshotById(restaurantId, cb) {
   return;
+}
+
+export function getStarSnapshotById(starId, cb){
+  return;
+}
+
+export async function getWarsByStarId(db, starId) {
+  if (!starId) {
+    console.log("Error: Invalid starId received: ", starId);
+    return;
+  }
+
+  const q = query(
+    collection(db, "stars", starId, "wars"),
+    orderBy("timestamp", "desc")
+  );
+
+  const results = await getDocs(q);
+  return results.docs.map((doc) => {
+    return {
+      id: doc.id,
+      ...doc.data(),
+      // Only plain objects can be passed to Client Components from Server Components
+      timestamp: doc.data().timestamp.toDate(),
+    };
+  });
 }
 
 export async function getReviewsByRestaurantId(db, restaurantId) {
@@ -199,24 +300,15 @@ export function getReviewsSnapshotByRestaurantId(restaurantId, cb) {
   });
 }
 
-export async function addFakeRestaurantsAndReviews() {
-  const data = await generateFakeRestaurantsAndReviews();
-  for (const { restaurantData, ratingsData } of data) {
+export async function addFakeStars() {
+  const data = await generateFakeStars();
+  for (const starData of data) {
     try {
-      const docRef = await addDoc(
-        collection(db, "restaurants"),
-        restaurantData
-      );
-
-      for (const ratingData of ratingsData) {
-        await addDoc(
-          collection(db, "restaurants", docRef.id, "ratings"),
-          ratingData
-        );
-      }
+      const docRef = await addDoc(collection(db, "stars"), starData);
+      console.log("Document written with ID: ", docRef.id);
     } catch (e) {
-      console.log("There was an error adding the document");
-      console.error("Error adding document: ", e);
+      console.log("There was an error adding new stars");
+      console.error("Error adding new stars: ", e);
     }
   }
 }

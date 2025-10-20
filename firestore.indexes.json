@@ -1,113 +1,85 @@
 {
   "indexes": [
     {
-      "collectionGroup": "restaurants",
+      "collectionGroup": "stars",
       "queryScope": "COLLECTION",
       "fields": [
         {
-          "fieldPath": "category",
-          "order": "ASCENDING"
+          "fieldPath": "name",
+          "order": "DESCENDING"
         },
         {
-          "fieldPath": "avgRating",
+          "fieldPath": "GDP",
           "order": "DESCENDING"
         }
       ]
     },
     {
-      "collectionGroup": "restaurants",
+      "collectionGroup": "stars",
       "queryScope": "COLLECTION",
       "fields": [
         {
-          "fieldPath": "category",
-          "order": "ASCENDING"
+          "fieldPath": "name",
+          "order": "DESCENDING"
         },
         {
-          "fieldPath": "numRatings",
+          "fieldPath": "sector",
           "order": "DESCENDING"
         }
       ]
     },
     {
-      "collectionGroup": "restaurants",
+      "collectionGroup": "stars",
       "queryScope": "COLLECTION",
       "fields": [
         {
-          "fieldPath": "category",
-          "order": "ASCENDING"
+          "fieldPath": "name",
+          "order": "DESCENDING"
         },
         {
-          "fieldPath": "price",
-          "order": "ASCENDING"
-        }
-      ]
-    },
-    {
-      "collectionGroup": "restaurants",
-      "queryScope": "COLLECTION",
-      "fields": [
-        {
-          "fieldPath": "city",
-          "order": "ASCENDING"
-        },
-        {
-          "fieldPath": "avgRating",
+          "fieldPath": "fightersAlpha",
           "order": "DESCENDING"
         }
       ]
     },
     {
-      "collectionGroup": "restaurants",
+      "collectionGroup": "stars",
       "queryScope": "COLLECTION",
       "fields": [
         {
-          "fieldPath": "city",
-          "order": "ASCENDING"
+          "fieldPath": "GDP",
+          "order": "DESCENDING"
         },
         {
-          "fieldPath": "numRatings",
+          "fieldPath": "sector",
           "order": "DESCENDING"
         }
       ]
     },
     {
-      "collectionGroup": "restaurants",
+      "collectionGroup": "stars",
       "queryScope": "COLLECTION",
       "fields": [
         {
-          "fieldPath": "city",
-          "order": "ASCENDING"
+          "fieldPath": "GDP",
+          "order": "DESCENDING"
         },
         {
-          "fieldPath": "price",
-          "order": "ASCENDING"
-        }
-      ]
-    },
-    {
-      "collectionGroup": "restaurants",
-      "queryScope": "COLLECTION",
-      "fields": [
-        {
-          "fieldPath": "price",
-          "order": "ASCENDING"
-        },
-        {
-          "fieldPath": "avgRating",
+          "fieldPath": "fightersAlpha",
           "order": "DESCENDING"
         }
       ]
     },
     {
-      "collectionGroup": "restaurants",
+      "collectionGroup": "stars",
       "queryScope": "COLLECTION",
       "fields": [
         {
-          "fieldPath": "price",
-          "order": "ASCENDING"
+          "fieldPath": "sector",
+          "order": "DESCENDING"
         },
         {
-          "fieldPath": "numRatings",
+          "fieldPath": "fightersAlpha",
           "order": "DESCENDING"
         }
       ]

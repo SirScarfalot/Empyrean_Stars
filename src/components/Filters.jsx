@@ -38,8 +38,8 @@ export default function Filters({ filters, setFilters }) {
         <summary>
           <img src="/filter.svg" alt="filter" />
           <div>
-            <p>Restaurants</p>
-            <p>Sorted by {filters.sort || "Rating"}</p>
+            <p>Star systems</p>
+            <p>Sorted by {filters.sort || "GDP"}</p>
           </div>
         </summary>
 
@@ -51,63 +51,22 @@ export default function Filters({ filters, setFilters }) {
           }}
         >
           <FilterSelect
-            label="Category"
+            label="sector"
             options={[
-              "",
-              "Italian",
-              "Chinese",
-              "Japanese",
-              "Mexican",
-              "Indian",
-              "Mediterranean",
-              "Caribbean",
-              "Cajun",
-              "German",
-              "Russian",
-              "Cuban",
-              "Organic",
-              "Tapas",
+              "Alpha",
+              "Beta",
+              "Delta",
+              "Gamma",
             ]}
             value={filters.category}
             onChange={(event) => handleSelectionChange(event, "category")}
-            name="category"
+            name="sector"
             icon="/food.svg"
           />
 
           <FilterSelect
-            label="City"
-            options={[
-              "",
-              "New York",
-              "Los Angeles",
-              "London",
-              "Paris",
-              "Tokyo",
-              "Mumbai",
-              "Dubai",
-              "Amsterdam",
-              "Seoul",
-              "Singapore",
-              "Istanbul",
-            ]}
-            value={filters.city}
-            onChange={(event) => handleSelectionChange(event, "city")}
-            name="city"
-            icon="/location.svg"
-          />
-
-          <FilterSelect
-            label="Price"
-            options={["", "$", "$$", "$$$", "$$$$"]}
-            value={filters.price}
-            onChange={(event) => handleSelectionChange(event, "price")}
-            name="price"
-            icon="/price.svg"
-          />
-
-          <FilterSelect
             label="Sort"
-            options={["Rating", "Review"]}
+            options={["name", "GDP", "fighters", "sector"]}
             value={filters.sort}
             onChange={(event) => handleSelectionChange(event, "sort")}
             name="sort"
@@ -121,9 +80,7 @@ export default function Filters({ filters, setFilters }) {
                 type="reset"
                 onClick={() => {
                   setFilters({
-                    city: "",
-                    category: "",
-                    price: "",
+                    sector: "",
                     sort: "",
                   });
                 }}

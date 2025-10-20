@@ -1,5 +1,5 @@
-import RestaurantListings from "@/src/components/RestaurantListings.jsx";
-import { getRestaurants } from "@/src/lib/firebase/firestore.js";
+import StarListings from "@/src/components/StarListings.jsx";
+import { getStars } from "@/src/lib/firebase/firestore.js";
 import { getAuthenticatedAppForUser } from "@/src/lib/firebase/serverApp.js";
 import { getFirestore } from "firebase/firestore";
 
@@ -16,14 +16,14 @@ export default async function Home(props) {
   // Using seachParams which Next.js provides, allows the filtering to happen on the server-side, for example:
   // ?city=London&category=Indian&sort=Review
   const { firebaseServerApp } = await getAuthenticatedAppForUser();
-  const restaurants = await getRestaurants(
+  const stars = await getStars(
     getFirestore(firebaseServerApp),
     searchParams
   );
   return (
     <main className="main__home">
-      <RestaurantListings
-        initialRestaurants={restaurants}
+      <StarListings
+        initialStars={stars}
         searchParams={searchParams}
       />
     </main>
