@@ -59,7 +59,7 @@ export default function Filters({ filters, setFilters }) {
               "Gamma",
             ]}
             value={filters.category}
-            onChange={(event) => handleSelectionChange(event, "category")}
+            onChange={(event) => handleSelectionChange(event, "sector")}
             name="sector"
             icon="/food.svg"
           />
