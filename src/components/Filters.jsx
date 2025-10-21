@@ -66,7 +66,7 @@ export default function Filters({ filters, setFilters }) {
 
           <FilterSelect
             label="Sort"
-            options={["name", "GDP", "fighters", "sector"]}
+            options={["name", "GDP"]}
             value={filters.sort}
             onChange={(event) => handleSelectionChange(event, "sort")}
             name="sort"
