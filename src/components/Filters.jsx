@@ -58,7 +58,7 @@ export default function Filters({ filters, setFilters }) {
               "Delta",
               "Gamma",
             ]}
-            value={filters.category}
+            value={filters.sector}
             onChange={(event) => handleSelectionChange(event, "sector")}
             name="sector"
             icon="/food.svg"
@@ -66,7 +66,7 @@ export default function Filters({ filters, setFilters }) {
 
           <FilterSelect
             label="Sort"
-            options={["name", "GDP"]}
+            options={["GDP", "name"]}
             value={filters.sort}
             onChange={(event) => handleSelectionChange(event, "sort")}
             name="sort"
