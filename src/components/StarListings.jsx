@@ -48,8 +48,7 @@ export default function StarListings({
   // The initial filters are the search params from the URL, useful for when the user refreshes the page
   const initialFilters = {
     GDP: searchParams.GDP || "",
-    Sector: searchParams.sector || "",
-    Name: searchParams.name || "",
+    name: searchParams.name || "",
   };
 
   const [stars, setStars] = useState(initialStars);
