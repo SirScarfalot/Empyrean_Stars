@@ -105,20 +105,14 @@ export async function addWar(db, starId) {
   }
 }
 
-function applyQueryFilters(q, { category, city, price, sort }) {
-  if (category) {
-    q = query(q, where("category", "==", category));
+function applyQueryFilters(q, { sector, sort }) {
+  if (sector) {
+    q = query(q, where("sector", "==", sector));
   }
-  if (city) {
-    q = query(q, where("city", "==", city));
-  }
-  if (price) {
-    q = query(q, where("price", "==", price.length));
-  }
-  if (sort === "Rating" || !sort) {
-    q = query(q, orderBy("avgRating", "desc"));
-  } else if (sort === "Review") {
-    q = query(q, orderBy("numRatings", "desc"));
+  if (sort === "GDP" || !sort) {
+    q = query(q, orderBy("GDP", "desc"));
+  } else if (sort === "name") {
+    q = query(q, orderBy("name", "desc"));
   }
   return q;
 }
@@ -147,8 +141,6 @@ export async function getStars(db = db, filters = {}) {
     return {
       id: doc.id,
       ...doc.data(),
-      // Only plain objects can be passed to Client Components from Server Components
-      timestamp: doc.data().timestamp.toDate(),
     };
   });
 }
