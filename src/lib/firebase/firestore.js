@@ -183,7 +183,7 @@ export function getStarsSnapshot(cb, filters = {}) {
         id: doc.id,
         ...doc.data(),
         // Only plain objects can be passed to Client Components from Server Components
-        timestamp: doc.data().timestamp.toDate(),
+        // timestamp: doc.data().timestamp.toDate(),
       };
     });
 
@@ -242,7 +242,7 @@ export async function getWarsByStarId(db, starId) {
       id: doc.id,
       ...doc.data(),
       // Only plain objects can be passed to Client Components from Server Components
-      timestamp: doc.data().timestamp.toDate(),
+      // timestamp: doc.data().timestamp.toDate(),
     };
   });
 }
