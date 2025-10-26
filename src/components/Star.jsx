@@ -4,7 +4,6 @@ import { React, useState, useEffect, Suspense } from "react";
 import dynamic from "next/dynamic";
 import { getStarSnapshotById } from "@/src/lib/firebase/firestore.js";
 import { useUser } from "@/src/lib/getUser";
-import StarDetails from "@/src/components/StarDetails.jsx";
 
 // const WarDialog = dynamic(() => import("@/src/components/WarDialog.jsx"));
 
@@ -14,7 +13,7 @@ export default function Star({
   initialUserId,
   children,
 }) {
-  const [starDetails, setStarDetails] = useState(initialStar);
+  const [StarDetails, setStarDetails] = useState(initialStar);
   const [isOpen, setIsOpen] = useState(false);
 
   // The only reason this component needs to know the user ID is to associate a review with the user, and to know whether to show the review dialog
@@ -41,7 +40,7 @@ export default function Star({
   return (
     <>
       <StarDetails
-        star={starDetails}
+        star={StarDetails}
         userId={userId}
         setIsOpen={setIsOpen}
         isOpen={isOpen}

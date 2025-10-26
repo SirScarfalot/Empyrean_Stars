@@ -1,7 +1,7 @@
 import React from "react";
 
 const StarDetails = ({
-  stars,
+  star,
   userId,
   setIsOpen,
   isOpen,
@@ -13,18 +13,18 @@ const StarDetails = ({
 
       <div className="details__container">
         <div className="details">
-          <h2>{stars.name}</h2>
+          <h2>{star.name}</h2>
 
           <div className="stars__GDP">
-            <p>{stars.gdp}</p>
+            <p>{star.gdp}</p>
           </div>
 
           <p>
-            {stars.timeCreated} | {stars.sector}
+            {star.timeCreated} | {star.sector}
           </p>
           <p>
             <hr></hr>
-           Alpha fleet: {stars.fightersAlpha} | Beta fleet: {stars.fightersBeta} | Delta fleet: {stars.fightersDelta} | Gamma fleet: {stars.fightersGamma}
+           Alpha fleet: {star.fightersAlpha} | Beta fleet: {star.fightersBeta} | Delta fleet: {star.fightersDelta} | Gamma fleet: {star.fightersGamma}
             <hr></hr>
           </p>
           {children}
