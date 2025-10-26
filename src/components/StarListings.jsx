@@ -32,6 +32,7 @@ const StarMetadata = ({ star }) => (
     <h2>
       {star.sector} | {star.GDP}
     </h2>
+    <hr></hr>
     <p>Alpha fleet: {star.fightersAlpha}</p>
     <p>Beta fleet: {star.fightersBeta}</p>
     <p>Delta fleet: {star.fightersDelta}</p>

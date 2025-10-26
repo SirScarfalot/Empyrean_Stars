@@ -213,7 +213,7 @@ export async function getStarById(db, starId) {
   const docSnap = await getDoc(docRef);
   return {
     ...docSnap.data(),
-    timestamp: docSnap.data().timestamp.toDate(),
+  //  timestamp: docSnap.data().timestamp.toDate(),
   };
 }
 
