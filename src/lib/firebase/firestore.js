@@ -211,15 +211,10 @@ export async function getStarById(db, starId) {
   }
   const docRef = doc(db, "stars", starId);
   const docSnap = await getDoc(docRef);
-  const data = docSnap.data();
-  
-  // Stars don't have timestamps, so only add it if it exists
-  const result = { ...data };
-  if (data?.timestamp) {
-    result.timestamp = data.timestamp.toDate();
-  }
-  
-  return result;
+  return {
+    ...docSnap.data(),
+    timestamp: docSnap.data().timestamp.toDate(),
+  };
 }
 
 export function getRestaurantSnapshotById(restaurantId, cb) {
