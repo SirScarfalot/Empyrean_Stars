@@ -1,7 +1,7 @@
 import React from "react";
 
 const StarDetails = ({
-  star,
+  stars,
   userId,
   setIsOpen,
   isOpen,
@@ -9,22 +9,22 @@ const StarDetails = ({
 }) => {
   return (
     <section className="anthem__section">
-      <iframe width="560" height="315" src={`https://www.youtube.com/embed/${star.anthem}`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <iframe width="560" height="315" src={`https://www.youtube.com/embed/${stars.anthem}`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
       <div>
         <div>
-          <h2>{star.name}</h2>
+          <h2>{stars.name}</h2>
 
           <div className="stars__GDP">
-            <p>{star.gdp}</p>
+            <p>{stars.gdp}</p>
           </div>
 
           <p>
-            {star.timeCreated} | {star.sector}
+            {stars.timeCreated} | {stars.sector}
           </p>
           <p>
             <hr></hr>
-           Alpha fleet: {star.fightersAlpha} | Beta fleet: {star.fightersBeta} | Delta fleet: {star.fightersDelta} | Gamma fleet: {star.fightersGamma}
+           Alpha fleet: {stars.fightersAlpha} | Beta fleet: {stars.fightersBeta} | Delta fleet: {stars.fightersDelta} | Gamma fleet: {stars.fightersGamma}
             <hr></hr>
           </p>
           {children}
