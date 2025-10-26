@@ -47,17 +47,6 @@ export default function Star({
       >
         {children}
       </StarDetails>
-      {userId && (
-        <Suspense fallback={<p>Loading...</p>}>
-          <WarDialog
-            isOpen={isOpen}
-            handleClose={handleClose}
-            onChange={onChange}
-            userId={userId}
-            id={id}
-          />
-        </Suspense>
-      )}
     </>
   );
 }

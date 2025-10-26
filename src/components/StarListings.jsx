@@ -22,16 +22,17 @@ const ActiveStar = ({ star }) => (
 
 const StarDetails = ({ star }) => (
   <div className = "restaurant__details">
-    <h2>{star.name}</h2>
+    <h1>{star.name}</h1>
     <StarMetadata star={star} />
   </div>
 );
 
 const StarMetadata = ({ star }) => (
   <div className="restaurant__meta">
-    <p>
+    <h2>
       {star.sector} | {star.GDP}
-    </p>
+    </h2>
+    <hr>---</hr>
     <p>Alpha fleet: {star.fightersAlpha}</p>
     <p>Beta fleet: {star.fightersBeta}</p>
     <p>Delta fleet: {star.fightersDelta}</p>
