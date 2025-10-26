@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 import { getStarSnapshotById } from "@/src/lib/firebase/firestore.js";
 import { useUser } from "@/src/lib/getUser";
 
-const WarDialog = dynamic(() => import("@/src/components/WarDialog.jsx"));
+// const WarDialog = dynamic(() => import("@/src/components/WarDialog.jsx"));
 
 export default function Star({
   id,
@@ -18,7 +18,7 @@ export default function Star({
 
   // The only reason this component needs to know the user ID is to associate a review with the user, and to know whether to show the review dialog
   const userId = useUser()?.uid || initialUserId;
-  const [war, setWar] = useState({
+  /*const [war, setWar] = useState({
     sector: "",
   });
 
@@ -29,7 +29,7 @@ export default function Star({
   const handleClose = () => {
     setIsOpen(false);
     setWar({ sector: "", });
-  };
+  };*/
 
   useEffect(() => {
     return getStarSnapshotById(id, (data) => {
