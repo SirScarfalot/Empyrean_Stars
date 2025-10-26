@@ -39,14 +39,14 @@ export default function Star({
 
   return (
     <>
-      <StarDetails
+      <starDetails
         stars={starDetails}
         userId={userId}
         setIsOpen={setIsOpen}
         isOpen={isOpen}
       >
         {children}
-      </StarDetails>
+      </starDetails>
     </>
   );
 }
