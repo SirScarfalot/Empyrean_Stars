@@ -1,10 +1,7 @@
 import Star from "@/src/components/Star.jsx";
-import { Suspense } from "react";
+//import { Suspense } from "react";
 import { getStarById } from "@/src/lib/firebase/firestore.js";
-import {
-  getAuthenticatedAppForUser,
-  getAuthenticatedAppForUser as getUser,
-} from "@/src/lib/firebase/serverApp.js";
+import { getAuthenticatedAppForUser } from "@/src/lib/firebase/serverApp.js";
 import { getFirestore } from "firebase/firestore";
 
 export default async function Home(props) {
@@ -12,8 +9,7 @@ export default async function Home(props) {
   // parameters via Next.js and download the data
   // we need for this page
   const params = await props.params;
-  const { currentUser } = await getUser();
-  const { firebaseServerApp } = await getAuthenticatedAppForUser();
+  const { currentUser, firebaseServerApp } = await getAuthenticatedAppForUser();
   const star = await getStarById(
     getFirestore(firebaseServerApp),
     params.id

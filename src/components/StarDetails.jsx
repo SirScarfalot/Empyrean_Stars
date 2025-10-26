@@ -16,7 +16,7 @@ const StarDetails = ({
           <h2>{stars.name}</h2>
 
           <div className="stars__GDP">
-            <p>{stars.gdp}</p>
+            <p>{stars.GDP}</p>
           </div>
 
           <p>
