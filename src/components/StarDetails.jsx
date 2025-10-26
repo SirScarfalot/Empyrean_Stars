@@ -7,28 +7,24 @@ const StarDetails = ({
   isOpen,
   children,
 }) => {
-  if (!stars) {
-    return <div>Loading...</div>;
-  }
-
   return (
     <section className="anthem__section">
       <iframe width="560" height="315" src={`https://www.youtube.com/embed/9U-zAcgilNU`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
       <div className="details__container">
         <div className="details">
-          <h2>{stars?.name}</h2>
+          <h2>{stars.name}</h2>
 
           <div className="stars__GDP">
-            <p>{stars?.gdp}</p>
+            <p>{stars.gdp}</p>
           </div>
 
           <p>
-            {stars?.timeCreated} | {stars?.sector}
+            {stars.timeCreated} | {stars.sector}
           </p>
           <p>
             <hr></hr>
-           Alpha fleet: {stars?.fightersAlpha} | Beta fleet: {stars?.fightersBeta} | Delta fleet: {stars?.fightersDelta} | Gamma fleet: {stars?.fightersGamma}
+           Alpha fleet: {stars.fightersAlpha} | Beta fleet: {stars.fightersBeta} | Delta fleet: {stars.fightersDelta} | Gamma fleet: {stars.fightersGamma}
             <hr></hr>
           </p>
           {children}
