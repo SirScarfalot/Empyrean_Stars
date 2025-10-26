@@ -14,7 +14,7 @@ export default function Star({
   initialUserId,
   children,
 }) {
-  const [starDetails, setStarDetails] = useState(initialStar);
+  const [star, setStar] = useState(initialStar);
   const [isOpen, setIsOpen] = useState(false);
 
   // The only reason this component needs to know the user ID is to associate a review with the user, and to know whether to show the review dialog
@@ -34,14 +34,14 @@ export default function Star({
 
   useEffect(() => {
     return getStarSnapshotById(id, (data) => {
-      setStarDetails(data);
+      setStar(data);
     });
   }, [id]);
 
   return (
     <>
       <StarDetails
-        stars={starDetails}
+        stars={star}
         userId={userId}
         setIsOpen={setIsOpen}
         isOpen={isOpen}
