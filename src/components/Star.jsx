@@ -13,13 +13,13 @@ export default function Star({
   id,
   initialStar,
   initialUserId,
-  children,
+ // children,
 }) {
   const [starDetails, setStarDetails] = useState(initialStar);
-  const [isOpen, setIsOpen] = useState(false);
+  //const [isOpen, setIsOpen] = useState(false);
 
   // The only reason this component needs to know the user ID is to associate a review with the user, and to know whether to show the review dialog
-  const userId = useUser()?.uid || initialUserId;
+  // const userId = useUser()?.uid || initialUserId;
   /*const [war, setWar] = useState({
     sector: "",
   });
@@ -31,18 +31,18 @@ export default function Star({
   const handleClose = () => {
     setIsOpen(false);
     setWar({ sector: "", });
-  };*/
+  }; 
 
   useEffect(() => {
     return getStarById(id, (data) => {
       setStarDetails(data);
     });
-  }, [id]);
+  }, [id]);*/
 
   return (
     <>
       <StarDetails
-        star={StarDetails}
+        star={starDetails}
       >
       </StarDetails>
     </>

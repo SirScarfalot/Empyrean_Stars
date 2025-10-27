@@ -14,19 +14,17 @@ export default async function Home(props) {
   const params = await props.params;
   const { currentUser } = await getUser();
   const { firebaseServerApp } = await getAuthenticatedAppForUser();
-  const star = await getStarById(
+  const starInfo = await getStarById(
     getFirestore(firebaseServerApp),
     params.id
   );
 
   return (
     <main className="main__restaurant">
-      <Star
-        id={params.id}
-        initialStar={star}
-        initialUserId={currentUser?.uid || ""}
+      <StarDetails
+        star={starInfo}
       >
-      </Star>
+      </StarDetails>
     </main>
   );
 }
