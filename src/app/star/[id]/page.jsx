@@ -1,4 +1,4 @@
-import Star from "@/src/components/Star.jsx";
+import StarDetails from "@/src/components/StarDetails.jsx";
 //import { Suspense } from "react";
 import { getStarById } from "@/src/lib/firebase/firestore.js";
 import {
