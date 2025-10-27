@@ -2,7 +2,6 @@ import React from "react";
 
 const StarDetails = ({
   star,
-  children,
 }) => {
   return (
     <section className="anthem__section">
@@ -24,7 +23,6 @@ const StarDetails = ({
            Alpha fleet: {star.fightersAlpha} | Beta fleet: {star.fightersBeta} | Delta fleet: {star.fightersDelta} | Gamma fleet: {star.fightersGamma}
             <hr></hr>
           </p>
-          {children}
         </div>
       </div>
     </section>

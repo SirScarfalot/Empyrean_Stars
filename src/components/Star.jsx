@@ -43,11 +43,7 @@ export default function Star({
     <>
       <StarDetails
         star={StarDetails}
-        userId={userId}
-        setIsOpen={setIsOpen}
-        isOpen={isOpen}
       >
-        {children}
       </StarDetails>
     </>
   );
