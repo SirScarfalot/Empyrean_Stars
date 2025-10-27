@@ -11,15 +11,14 @@ const StarDetails = ({
 
       <div>
         <div>
-          <h2>{star.name}</h2>
+          <h1>{star.name}</h1>
 
-          <div className="stars__GDP">
-            <p>{star.gdp}</p>
-          </div>
+          
+            <p>GDP: {star.GDP}</p>
 
-          <p>
+          <h2>
             {star.sector}
-          </p>
+          </h2>
           <p>
             <hr></hr>
            Alpha fleet: {star.fightersAlpha} | Beta fleet: {star.fightersBeta} | Delta fleet: {star.fightersDelta} | Gamma fleet: {star.fightersGamma}
