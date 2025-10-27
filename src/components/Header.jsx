@@ -44,7 +44,6 @@ export default function Header({ initialUser }) {
   return (
     <header>
       <Link href="/" className="logo">
-        <img src="/friendly-eats.svg" alt="FriendlyEats" />
         Empyrean Stars
       </Link>
       {user ? (
