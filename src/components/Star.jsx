@@ -41,7 +41,7 @@ export default function Star({
   return (
     <>
       <StarDetails
-        star={starDetails}
+        star={StarDetails}
         userId={userId}
         setIsOpen={setIsOpen}
         isOpen={isOpen}
