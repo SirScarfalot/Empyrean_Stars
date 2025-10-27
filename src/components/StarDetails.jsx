@@ -17,7 +17,7 @@ const StarDetails = ({
             <p>GDP: {star.GDP}</p>
 
           <h2>
-            {star.sector}
+            Sector: {star.sector}
           </h2>
           <p>
             <hr></hr>
