@@ -18,7 +18,7 @@ const StarDetails = ({
           </div>
 
           <p>
-            {star.timeCreated} | {star.sector}
+            {star.sector}
           </p>
           <p>
             <hr></hr>
