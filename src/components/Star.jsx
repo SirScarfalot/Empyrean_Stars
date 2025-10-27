@@ -33,7 +33,7 @@ export default function Star({
   };*/
 
   useEffect(() => {
-    return getStarSnapshotById(id, (data) => {
+    return getStarById(id, (data) => {
       setStarDetails(data);
     });
   }, [id]);

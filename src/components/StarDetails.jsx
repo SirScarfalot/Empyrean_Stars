@@ -2,9 +2,6 @@ import React from "react";
 
 const StarDetails = ({
   star,
-  userId,
-  setIsOpen,
-  isOpen,
   children,
 }) => {
   return (
